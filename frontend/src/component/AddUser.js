@@ -8,10 +8,10 @@ const AddUser = () => {
   const [jumlah, setJumlah] = useState("");
   const navigate = useNavigate();
  
-  const saveUser = async (e) => {
+  const saveData = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/input", {
+      await axios.post("http://localhost:5000/input/", {
         date,
         pemasukan,
         jumlah,
@@ -25,15 +25,15 @@ const AddUser = () => {
   return (
     <div className="columns mt-5">
       <div className="column is-half">
-        <form onSubmit={saveUser}>
+        <form onSubmit={saveData}>
           <div className="field">
-            <label className="label">Name</label>
+            <label className="label">Tanggal</label>
             <div className="control">
               <input
                 type="text"
                 className="input"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
                 placeholder="Name"
               />
             </div>
@@ -44,8 +44,8 @@ const AddUser = () => {
               <input
                 type="text"
                 className="input"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={pemasukan}
+                onChange={(e) => setPemasukan(e.target.value)}
                 placeholder="Email"
               />
             </div>
@@ -53,15 +53,13 @@ const AddUser = () => {
           <div className="field">
             <label className="label">Gender</label>
             <div className="control">
-              <div className="select is-fullwidth">
-                <select
-                  value={gender}
-                  onChange={(e) => setGender(e.target.value)}
-                >
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                </select>
-              </div>
+              <input
+                type="text"
+                className="input"
+                value={jumlah}
+                onChange={(e) => setJumlah(e.target.value)}
+                placeholder="Email"
+              />
             </div>
           </div>
           <div className="field">

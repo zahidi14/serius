@@ -3,10 +3,10 @@ import axios from "axios";
 import { Link } from "react-router-dom";
  
 const UserList = () => {
-  const [users, setUser] = useState([]);
+  const [data, setData] = useState([]);
  
   useEffect(() => {
-    getUsers();
+    getData();
   }, []);
  
   const getUsers = async () => {
